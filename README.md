@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # ptud-gk-de-2
 # README - Quản lý công việc
 
