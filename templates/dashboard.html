@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảng Điều Khiển</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Chào, {{ current_user.username }}</h2>
+
+        <div class="avatar-container">
+            <img src="{{ url_for('static', filename='uploads/' + current_user.avatar) }}" 
+                 width="100" height="100" alt="Avatar" class="avatar">
+
+            {% if overdue_tasks > 0 %}
+            <span class="overdue-alert">🔴 {{ overdue_tasks }} công việc trễ hạn</span>
+            {% endif %}
+        </div>
+
+        <!-- Form upload avatar -->
+        <form action="{{ url_for('upload_avatar') }}" method="post" enctype="multipart/form-data">
+            <input type="file" name="avatar" accept="image/*" required>
+            <button type="submit">Cập nhật Avatar</button>
+        </form>
+
+        <h3>Công việc của bạn</h3>
+        <ul class="task-list">
+            {% for task in tasks %}
+                <li {% if task.due_date and task.due_date < current_time and task.status != 'Completed' %}class="overdue"{% endif %}>
+                    {{ task.title }} - <strong>{{ task.status }}</strong>
+                    (Hạn: {% if task.due_date %}{{ task.due_date.strftime('%Y-%m-%d') }}{% else %}Chưa đặt{% endif %})
+                    <a href="{{ url_for('delete_task', task_id=task.id) }}">❌ Xóa</a>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <!-- Form thêm công việc -->
+        <form action="{{ url_for('add_task') }}" method="post">
+            <input type="text" name="title" placeholder="Thêm công việc mới" required>
+            <input type="date" name="due_date">
+            <button type="submit">Thêm</button>
+        </form>
+
+        <br>
+        <a href="{{ url_for('logout') }}">Đăng xuất</a>
+    </div>
+</body>
+</html>

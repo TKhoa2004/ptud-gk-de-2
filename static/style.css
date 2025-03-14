@@ -1,0 +1,128 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: #282c36;
+    color: #ffffff;
+    text-align: center;
+    font-size: 18px;
+}
+
+/* Header */
+header {
+    background: #1f2937;
+    color: white;
+    padding: 20px;
+    font-size: 26px;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 500px;
+    margin: 30px auto;
+    background: #3b4252;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Headings */
+h1, h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Input & Button Styles */
+input, button {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    font-size: 18px;
+    background: #4c566a;
+    color: white;
+}
+
+button {
+    background-color: #5e81ac;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #81a1c1;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: #88c0d0;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Task & User Lists */
+.task-list, .user-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.task-list li, .user-list li {
+    background: #4c566a;
+    margin: 5px 0;
+    padding: 12px;
+    border-radius: 5px;
+    display: block;
+    text-align: left;
+}
+
+/* Avatar Styling */
+.avatar-container {
+    display: block;
+    margin: 20px auto;
+}
+
+img.avatar {
+    border-radius: 50%;
+    border: 3px solid #ddd;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+}
+
+/* Overdue task alert */
+.overdue-alert {
+    display: block;
+    background: red;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Single Column Layout */
+main, .container, .task-list, .user-list {
+    display: block;
+}
+
+/* Footer */
+footer {
+    background: #1f2937;
+    color: white;
+    padding: 15px;
+    margin-top: 20px;
+}
